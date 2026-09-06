@@ -7,14 +7,12 @@ class Hach < Formula
   on_macos do
     on_arm do
       url "https://github.com/jonbaldie/hach/releases/download/v0.1.0/hach_0.1.0_darwin_arm64.tar.gz"
-      sha256 "24a89a94143f970b80007bda7acbf1c6eee57d9048268838741e23a700a8693d"
+      sha256 "2f0ffc66ff0d21cf488e9d2481db0364a991a95aa97966480c6d57e9d9878fff"
     end
-  end
 
-  on_linux do
     on_intel do
-      url "https://github.com/jonbaldie/hach/releases/download/v0.1.0/hach_0.1.0_linux_amd64.tar.gz"
-      sha256 "51e65f2ecf3b033ede530e822b9c89142639da4d7b8a3e3b9cb84d052e01dfd5"
+      url "https://github.com/jonbaldie/hach/releases/download/v0.1.0/hach_0.1.0_darwin_amd64.tar.gz"
+      sha256 "471220a3bc3c198964e8d2b3c5a59ea3ec6a3df25bb7b776e5a8ec108dcd1ac4"
     end
   end
 
