@@ -19,7 +19,7 @@ brew install hach
 
 ## Available Formulae
 
-- **[hach](https://github.com/jonbaldie/hach)**: A minimalist, principled agentic coding harness in Haskell (Functional Pearl).
+- **[hach](https://github.com/jonbaldie/hach)**: A minimalist, principled agentic coding harness in Haskell.
 
 ## License
 

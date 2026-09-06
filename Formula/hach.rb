@@ -1,5 +1,5 @@
 class Hach < Formula
-  desc "Minimalist, principled agentic coding harness in Haskell (Functional Pearl)"
+  desc "Minimalist, principled agentic coding harness in Haskell"
   homepage "https://github.com/jonbaldie/hach"
   license "MIT"
   version_scheme 1
