@@ -6,19 +6,19 @@ class Hach < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/jonbaldie/hach/releases/download/v0.1.8/hach_0.1.8_darwin_arm64.tar.gz"
-      sha256 "4fa1998c2919adc85ace654a6b08c98a95f93928405d6fc73e5806168f3182d9"
+      url "https://github.com/jonbaldie/hach/releases/download/v0.1.9/hach_0.1.9_darwin_arm64.tar.gz"
+      sha256 "465ac68797d44264c8150cd065cdccf8b750cc7ea1e2054f906a89e161b4be88"
     end
 
     on_intel do
-      url "https://github.com/jonbaldie/hach/releases/download/v0.1.8/hach_0.1.8_darwin_amd64.tar.gz"
-      sha256 "ce7bcb9b3d35cb14f9e5719c3b0381a8c17e82151618fa91196908aa912eb5cb"
+      url "https://github.com/jonbaldie/hach/releases/download/v0.1.9/hach_0.1.9_darwin_amd64.tar.gz"
+      sha256 "58398170a00dac429e8d1cb74e1dc9973528814c2e0b25b504e2ba89ba7e9329"
     end
   end
 
   on_linux do
-    url "https://github.com/jonbaldie/hach/releases/download/v0.1.8/hach_0.1.8_linux_amd64.tar.gz"
-    sha256 "611b5c2f26479d737fc4a1bc3b18df25a2abc210abf33c2c5fc7137be6361fe5"
+    url "https://github.com/jonbaldie/hach/releases/download/v0.1.9/hach_0.1.9_linux_amd64.tar.gz"
+    sha256 "0aa8139e5955e6f957b77b7b7594b07c494fb0087a3d248c154aebfdb3c86d1b"
   end
 
   def install
@@ -27,6 +27,6 @@ class Hach < Formula
   end
 
   test do
-    assert_match "0.1.8", shell_output("#{bin}/hach --version")
+    assert_match "0.1.9", shell_output("#{bin}/hach --version")
   end
 end
