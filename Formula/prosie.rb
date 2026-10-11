@@ -6,25 +6,25 @@ class Prosie < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/jonbaldie/prosie-cli/releases/download/v0.5.1/prosie_0.5.1_darwin_arm64.tar.gz"
-      sha256 "ae45d0c21ad93b2ff7d4b8cee66576e61152cada55939f7164ad3b66ddfd9a64"
+      url "https://github.com/jonbaldie/prosie-cli/releases/download/v0.5.2/prosie_0.5.2_darwin_arm64.tar.gz"
+      sha256 "5027bc9e79623a625173369e1c4e2c3fcb9f0a1e8387bf55151b6b64eb4353c1"
     end
 
     on_intel do
-      url "https://github.com/jonbaldie/prosie-cli/releases/download/v0.5.1/prosie_0.5.1_darwin_amd64.tar.gz"
-      sha256 "b2bbdc1b2c4a9fa73ef0e2062061707f3d978059c0d8064041fc71ec0c514fbd"
+      url "https://github.com/jonbaldie/prosie-cli/releases/download/v0.5.2/prosie_0.5.2_darwin_amd64.tar.gz"
+      sha256 "771c733f07973066142ede611ec572dbe2226a42a04193e246a2d1be12707176"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/jonbaldie/prosie-cli/releases/download/v0.5.1/prosie_0.5.1_linux_arm64.tar.gz"
-      sha256 "8dff63a3aac044de7d3ddf5d3b87e9c0fcb3cdd4c7399ce4a95a2b392f99f00b"
+      url "https://github.com/jonbaldie/prosie-cli/releases/download/v0.5.2/prosie_0.5.2_linux_arm64.tar.gz"
+      sha256 "da17a6c4c5ee9f17fb53a397c23764ddb5d74da0592602cd0c905444679c1441"
     end
 
     on_intel do
-      url "https://github.com/jonbaldie/prosie-cli/releases/download/v0.5.1/prosie_0.5.1_linux_amd64.tar.gz"
-      sha256 "b4df05118cbdc37a92dd637e681a9b86135678ee72a0f36279124d66995f4e6a"
+      url "https://github.com/jonbaldie/prosie-cli/releases/download/v0.5.2/prosie_0.5.2_linux_amd64.tar.gz"
+      sha256 "baf3752cddfd4cfb720a1d528942bb8f98b96c35112d7343d2b0a80c95e48d8f"
     end
   end
 
@@ -34,6 +34,6 @@ class Prosie < Formula
   end
 
   test do
-    assert_match "0.5.1", shell_output("#{bin}/prosie version")
+    assert_match "0.5.2", shell_output("#{bin}/prosie version")
   end
 end
