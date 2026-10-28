@@ -6,19 +6,19 @@ class Hach < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/jonbaldie/hach/releases/download/v0.1.15/hach_0.1.15_darwin_arm64.tar.gz"
-      sha256 "5f09c86faa92871add9266602ddd5ef26c89d85707a9769bb405c668fe2b4751"
+      url "https://github.com/jonbaldie/hach/releases/download/v0.1.16/hach_0.1.16_darwin_arm64.tar.gz"
+      sha256 "c95bd8022f12d6bfef0dc68f6ee19f222bfab2f9b2e694d206ee9f495df91f23"
     end
 
     on_intel do
-      url "https://github.com/jonbaldie/hach/releases/download/v0.1.15/hach_0.1.15_darwin_amd64.tar.gz"
-      sha256 "1a38be3b577e15810781f840bd610be0214de45df5d5cd57f14c1bf54fcfab91"
+      url "https://github.com/jonbaldie/hach/releases/download/v0.1.16/hach_0.1.16_darwin_amd64.tar.gz"
+      sha256 "e76651da441b5fa3db4ecc0a6bb604d34f2b822bddafea0fa9f5b4a85f37523d"
     end
   end
 
   on_linux do
-    url "https://github.com/jonbaldie/hach/releases/download/v0.1.15/hach_0.1.15_linux_amd64.tar.gz"
-    sha256 "98b170f9fa30c2a73374b592be901b9d82fbcc1955edd8f58427a2f3126cf032"
+    url "https://github.com/jonbaldie/hach/releases/download/v0.1.16/hach_0.1.16_linux_amd64.tar.gz"
+    sha256 "fff153de25e4419f97a29aaa9031bbe8d5cc80adfe47f843f44b19aa2f64c528"
   end
 
   def install
@@ -27,6 +27,6 @@ class Hach < Formula
   end
 
   test do
-    assert_match "0.1.15", shell_output("#{bin}/hach --version")
+    assert_match "0.1.16", shell_output("#{bin}/hach --version")
   end
 end
