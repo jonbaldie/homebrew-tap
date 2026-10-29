@@ -2,7 +2,8 @@ class Prosie < Formula
   desc "Official command-line interface for the Prosie novel writing platform"
   homepage "https://github.com/jonbaldie/prosie-cli"
   license "MIT"
-  version_scheme 1
+  version "0.6.0"
+  version_scheme 2
 
   on_macos do
     on_arm do
