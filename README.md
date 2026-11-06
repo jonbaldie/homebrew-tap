@@ -27,7 +27,7 @@ brew install hach
 
 ## Testing
 
-See the [installation exploratory report](docs/exploratory-testing/2026-11-06-install.md) for tested paths and known limits.
+See the [installation exploratory report](docs/exploratory-testing/2026-11-06-install.md) for tested paths and known limits. The [repeat pass](docs/exploratory-testing/2026-11-06-owned.md) includes registered teardown evidence.
 
 ## License
 
