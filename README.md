@@ -25,6 +25,10 @@ brew install hach
 - **[prosie](https://github.com/jonbaldie/prosie-cli)**: Official command-line interface for the Prosie novel writing platform.
 - **[bookbeam](https://github.com/jonbaldie/bookbeam-cli)**: Official command-line interface for BookBeam's book distribution platform.
 
+## Testing
+
+See the [installation exploratory report](docs/exploratory-testing/2026-11-06-install.md) for tested paths and known limits.
+
 ## License
 
 MIT

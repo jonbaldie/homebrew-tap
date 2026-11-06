@@ -1,0 +1,30 @@
+name: Verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Check formula syntax and report evidence
+        run: |
+          for formula in Formula/*.rb; do ruby -c "$formula"; done
+          python3 - <<'PY'
+          import pathlib
+          import re
+
+          report = pathlib.Path('docs/exploratory-testing/2026-11-06-install.md')
+          assert report.is_file()
+          assert str(report) in pathlib.Path('README.md').read_text()
+          links = re.findall(r'\]\((evidence/[^)]+)\)', report.read_text())
+          assert links, 'No evidence links in report'
+          for link in links:
+              assert (report.parent / link).is_file(), link
+          PY
