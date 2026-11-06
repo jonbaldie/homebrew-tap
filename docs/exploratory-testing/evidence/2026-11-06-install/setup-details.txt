@@ -1,0 +1,3 @@
+Homebrew checkout commit: 970da0cd771488410bb97d315e7ccb5435dfa97a
+Developer mode check: Developer mode is disabled.
+`brew update` will update to the latest stable tag.

@@ -1,0 +1,38 @@
+==== fresh HOME, untap and tap ====
+Untapping jonbaldie/tap...
+Untapped 3 formulae (17 files, 103.2KB).
+exit=0
+==> Tapping jonbaldie/tap
+Cloning into '<worktree>/.scratch/brew/Library/Taps/jonbaldie/homebrew-tap'...
+Tapped 3 formulae (17 files, 103.2KB).
+exit=0
+==== clean trust and short-name installation ====
+All official taps and commands are trusted.
+No trusted taps, formulae, casks or commands.
+Error: Refusing to load formula jonbaldie/tap/hach from untrusted tap jonbaldie/tap.
+Run `brew trust --formula jonbaldie/tap/hach` or `brew trust jonbaldie/tap` to trust it.
+exit=1
+list_exit=1
+==== suggested trust and retry ====
+Trusted tap: jonbaldie/tap
+trust_exit=0
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+
+==> Fetching downloads for: hach
+✔︎ Formula hach (0.1.17)
+==> Installing hach from jonbaldie/tap
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+🍺  <worktree>/.scratch/brew/Cellar/hach/0.1.17: 5 files, 50.4MB, built in 2 seconds
+install_exit=0
+hach 0.1.17
+hach 0.1.17.0
+version_exit=0

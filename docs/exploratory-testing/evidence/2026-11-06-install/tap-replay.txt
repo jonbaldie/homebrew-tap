@@ -1,0 +1,15 @@
+==== developer off ====
+exit=0
+==== tap ====
+exit=0
+==== short-name install ====
+Error: Refusing to load formula jonbaldie/tap/hach from untrusted tap jonbaldie/tap.
+Run `brew trust --formula jonbaldie/tap/hach` or `brew trust jonbaldie/tap` to trust it.
+exit=1
+==== list and run ====
+/bin/bash: line 5: hach: command not found
+exit=127
+==== trust status ====
+All official taps and commands are trusted.
+No trusted taps, formulae, casks or commands.
+exit=0

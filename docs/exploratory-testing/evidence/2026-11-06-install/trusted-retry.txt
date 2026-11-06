@@ -1,0 +1,42 @@
+==== trusted tap: brew install prosie ====
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+
+==> Fetching downloads for: prosie
+✔︎ Formula prosie (0.8.0)
+==> Installing prosie from jonbaldie/tap
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+🍺  <worktree>/.scratch/brew/Cellar/prosie/0.8.0: 6 files, 6.5MB, built in 1 second
+exit=0
+prosie 0.8.0
+list_exit=0
+help_exit=0
+==== trusted tap: brew install bookbeam ====
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+
+==> Fetching downloads for: bookbeam
+✔︎ Formula bookbeam (0.1.4)
+==> Installing bookbeam from jonbaldie/tap
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+🍺  <worktree>/.scratch/brew/Cellar/bookbeam/0.1.4: 4 files, 7MB, built in 1 second
+exit=0
+bookbeam 0.1.4
+list_exit=0
+help_exit=0

@@ -1,0 +1,38 @@
+==== clone stable Homebrew 7.0.12 ====
+Cloning into '.scratch/brew-stable'...
+Note: switching to 'bf464f57275cae0be106b43d190c98564ac59b0e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+clone_exit=0
+commit=bf464f57275cae0be106b43d190c98564ac59b0e
+==== stable version ====
+Homebrew 7.0.12
+exit=0
+==== documented tap ====
+==> Downloading https://ghcr.io/v2/homebrew/core/portable-ruby/blobs/sha256:20d7b22eba004e0518932ce7f8a271c16b1a9da91b81f696c735d14d817a2c07
+Already downloaded: <worktree>/.scratch/cache/portable-ruby-4.0.9.x86_64_linux.bottle.tar.gz
+==> Pouring portable-ruby-4.0.9.x86_64_linux.bottle.tar.gz
+==> Tapping jonbaldie/tap
+Cloning into '<worktree>/.scratch/brew-stable/Library/Taps/jonbaldie/homebrew-tap'...
+Tapped 3 formulae (17 files, 103.2KB).
+tap_exit=0
+==== short-name install ====
+Error: Refusing to load formula jonbaldie/tap/hach from untrusted tap jonbaldie/tap.
+Run `brew trust --formula jonbaldie/tap/hach` or `brew trust jonbaldie/tap` to trust it.
+install_exit=1
+==== installed state ====
+list_exit=1

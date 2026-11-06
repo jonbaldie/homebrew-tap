@@ -1,0 +1,2 @@
+Homebrew >=4.3.0 (shallow or no git repository)
+brew_exit=0

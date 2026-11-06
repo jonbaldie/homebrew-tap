@@ -1,0 +1,75 @@
+==== brew install jonbaldie/tap/hach ====
+==> Downloading https://ghcr.io/v2/homebrew/core/portable-ruby/blobs/sha256:20d7b22eba004e0518932ce7f8a271c16b1a9da91b81f696c735d14d817a2c07
+
+#=#=#
+                                                                           0.2%
+#########################################                                 57.0%
+####################################################                      73.1%
+#####################################################################     96.1%
+######################################################################## 100.0%
+==> Pouring portable-ruby-4.0.9.x86_64_linux.bottle.tar.gz
+==> Trusted formula jonbaldie/tap/hach
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+
+==> Fetching downloads for: hach
+✔︎ Formula hach (0.1.17)
+==> Installing hach from jonbaldie/tap
+Error: jonbaldie/tap/hach: Failure while executing; `/usr/bin/env git -c core.hooksPath=/dev/null clone --origin=origin --template= --config core.fsmonitor=false --end-of-options https://github.com/Homebrew/homebrew-core <worktree>/.scratch/brew/Library/Taps/homebrew/homebrew-core` exited with 128. Here's the output:
+fatal: could not create leading directories of '<worktree>/.scratch/brew/Library/Taps/homebrew/homebrew-core': Permission denied
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+==> Tapping homebrew/core
+fatal: could not create leading directories of '<worktree>/.scratch/brew/Library/Taps/homebrew/homebrew-core': Permission denied
+exit=1
+==== brew install jonbaldie/tap/prosie ====
+==> Trusted formula jonbaldie/tap/prosie
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+
+==> Fetching downloads for: prosie
+✔︎ Formula prosie (0.8.0)
+==> Installing prosie from jonbaldie/tap
+Error: jonbaldie/tap/prosie: Failure while executing; `/usr/bin/env git -c core.hooksPath=/dev/null clone --origin=origin --template= --config core.fsmonitor=false --end-of-options https://github.com/Homebrew/homebrew-core <worktree>/.scratch/brew/Library/Taps/homebrew/homebrew-core` exited with 128. Here's the output:
+fatal: could not create leading directories of '<worktree>/.scratch/brew/Library/Taps/homebrew/homebrew-core': Permission denied
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+==> Tapping homebrew/core
+fatal: could not create leading directories of '<worktree>/.scratch/brew/Library/Taps/homebrew/homebrew-core': Permission denied
+exit=1
+==== brew install jonbaldie/tap/bookbeam ====
+==> Trusted formula jonbaldie/tap/bookbeam
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+
+==> Fetching downloads for: bookbeam
+✔︎ Formula bookbeam (0.1.4)
+==> Installing bookbeam from jonbaldie/tap
+Error: jonbaldie/tap/bookbeam: Failure while executing; `/usr/bin/env git -c core.hooksPath=/dev/null clone --origin=origin --template= --config core.fsmonitor=false --end-of-options https://github.com/Homebrew/homebrew-core <worktree>/.scratch/brew/Library/Taps/homebrew/homebrew-core` exited with 128. Here's the output:
+fatal: could not create leading directories of '<worktree>/.scratch/brew/Library/Taps/homebrew/homebrew-core': Permission denied
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+==> Tapping homebrew/core
+fatal: could not create leading directories of '<worktree>/.scratch/brew/Library/Taps/homebrew/homebrew-core': Permission denied
+exit=1
