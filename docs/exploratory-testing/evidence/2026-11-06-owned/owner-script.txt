@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+repo=/home/ubuntu/Code/pstack/jonbaldie/homebrew-tap
+worktree=/home/ubuntu/Code/pstack/jonbaldie/homebrew-tap-explore-owned-20261106
+audit="$repo/.git/agent-audit/owned-20261106"
+active_pid=
+owned_worktree=0
+cleanup() {
+  local status=$?
+  trap - EXIT HUP INT TERM
+  set +e
+  if [[ -n "$active_pid" ]] && kill -0 -- "-$active_pid" 2>/dev/null; then
+    printf 'cleanup: terminate registered process group %s\n' "$active_pid" >> "$audit/owner.log"
+    kill -TERM -- "-$active_pid" 2>/dev/null
+    sleep 2
+    kill -KILL -- "-$active_pid" 2>/dev/null
+    wait "$active_pid" 2>/dev/null
+  fi
+  if [[ -f "$worktree/.scratch/actions.log" ]]; then
+    WORKTREE="$worktree" AUDIT="$audit" python3 - <<'PY'
+import os, pathlib, re
+w = pathlib.Path(os.environ['WORKTREE'])
+s = (w / '.scratch/actions.log').read_text(errors='replace')
+s = re.sub(r'\x1b\[[0-9;]*[A-Za-z]', '', s).replace(str(w), '<worktree>')
+p = pathlib.Path(os.environ['AUDIT']) / 'actions.txt'
+p.write_text('\n'.join(line.rstrip() for line in s.splitlines()) + '\n')
+PY
+  fi
+  if (( owned_worktree )); then
+    git -C "$repo" worktree remove --force "$worktree" >> "$audit/owner.log" 2>&1
+    removal=$?
+    printf 'cleanup: git worktree remove exit=%s\n' "$removal" >> "$audit/owner.log"
+    [[ $removal -eq 0 ]] || status=1
+  fi
+  if [[ -e "$worktree" ]]; then
+    printf 'cleanup: worktree still exists\n' >> "$audit/owner.log"
+    status=1
+  else
+    printf 'cleanup: worktree absent\n' >> "$audit/owner.log"
+  fi
+  printf 'cleanup: no browsers, containers, images, volumes, or listening services started\n' >> "$audit/owner.log"
+  printf 'cleanup: final exit=%s\n' "$status" >> "$audit/owner.log"
+  exit "$status"
+}
+trap cleanup EXIT
+trap 'exit 129' HUP
+trap 'exit 130' INT
+trap 'exit 143' TERM
+
+[[ ! -e "$worktree" ]] || { echo 'Refusing to use an existing worktree path' >&2; exit 1; }
+[[ ! -e "$audit" ]] || { echo 'Refusing to overwrite existing run evidence' >&2; exit 1; }
+mkdir -p "$audit"
+printf 'owner: trap registered before worktree creation\nworktree: %s\nresources: no browser, server, container, image, volume, or port planned\nteardown: terminate active registered process group, then git worktree remove --force\n' "$worktree" > "$audit/owner.log"
+git -C "$repo" worktree add --detach "$worktree" origin/main >> "$audit/owner.log" 2>&1
+owned_worktree=1
+mkdir -p "$worktree/.scratch/home" "$worktree/.scratch/cache" "$worktree/.scratch/tmp"
+cd "$worktree"
+log="$worktree/.scratch/actions.log"
+printf 'tap base=' > "$log"; git rev-parse HEAD >> "$log"
+printf 'platform=' >> "$log"; uname -sm >> "$log"
+
+run() {
+  local pid rc
+  printf '\n$' >> "$log"; printf ' %q' "$@" >> "$log"; printf '\n' >> "$log"
+  setsid timeout --kill-after=10s 180s "$@" >> "$log" 2>&1 &
+  pid=$!
+  active_pid=$pid
+  printf 'registered process group=%s command=%s\n' "$pid" "$1" >> "$audit/owner.log"
+  if wait "$pid"; then rc=0; else rc=$?; fi
+  if kill -0 -- "-$pid" 2>/dev/null; then
+    printf 'lingering process group=%s\n' "$pid" >> "$audit/owner.log"
+    return 125
+  fi
+  active_pid=
+  printf 'exit=%s\n' "$rc" >> "$log"
+  return "$rc"
+}
+
+run git clone --depth 1 --branch 7.0.12 https://github.com/Homebrew/brew "$worktree/.scratch/brew"
+printf 'Homebrew commit=' >> "$log"; git -C .scratch/brew rev-parse HEAD >> "$log"
+export HOME="$worktree/.scratch/home" TMPDIR="$worktree/.scratch/tmp" HOMEBREW_CACHE="$worktree/.scratch/cache"
+export HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_ENV_HINTS=1 HOMEBREW_NO_ANALYTICS=1
+export PATH="$worktree/.scratch/brew/bin:$PATH"
+run brew --version
+run brew tap jonbaldie/tap
+printf 'tap clone commit=' >> "$log"; git -C .scratch/brew/Library/Taps/jonbaldie/homebrew-tap rev-parse HEAD >> "$log"
+if run brew install hach; then printf 'Unexpected: untrusted short-name install succeeded\n' >> "$log"; else printf 'Observed initial short-name failure\n' >> "$log"; fi
+if run brew list --versions hach; then printf 'Unexpected: hach already installed\n' >> "$log"; else printf 'No installed hach\n' >> "$log"; fi
+run brew untap jonbaldie/tap
+mkdir -p .scratch/home-replay
+export HOME="$worktree/.scratch/home-replay"
+run brew tap jonbaldie/tap
+if run brew install hach; then printf 'Unexpected: replay succeeded\n' >> "$log"; else printf 'Observed replay short-name failure\n' >> "$log"; fi
+run brew trust jonbaldie/tap
+for formula in hach prosie bookbeam; do
+  run brew install "jonbaldie/tap/$formula"
+  run brew list --versions "$formula"
+  run "$formula" --help
+  run brew test "jonbaldie/tap/$formula"
+  run brew uninstall "$formula"
+  run brew install "$formula"
+  run brew list --versions "$formula"
+  run "$formula" --help
+done
+printf '\nall journeys completed\n' >> "$log"
+printf 'owner: all commands completed; normal exit starts teardown\n' >> "$audit/owner.log"

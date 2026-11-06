@@ -1,0 +1,41 @@
+The first verification parsed the wrong field and produced empty group IDs; it was discarded.
+Registered process group verification using field 3:
+group 2950381 absent
+group 2950393 absent
+group 2950424 absent
+group 2950835 absent
+group 2950897 absent
+group 2950929 absent
+group 2950962 absent
+group 2951162 absent
+group 2951194 absent
+group 2951226 absent
+group 2951504 absent
+group 2951514 absent
+group 2951526 absent
+group 2951948 absent
+group 2952003 absent
+group 2952229 absent
+group 2952239 absent
+group 2952251 absent
+group 2952554 absent
+group 2952564 absent
+group 2952570 absent
+group 2952657 absent
+group 2952706 absent
+group 2952937 absent
+group 2952947 absent
+group 2952953 absent
+group 2953221 absent
+group 2953231 absent
+group 2953237 absent
+group 2953340 absent
+group 2953396 absent
+group 2953626 absent
+group 2953636 absent
+verified groups=33
+Test worktree absent:
+yes
+Git worktrees:
+<repository> d7d139d [main]
+No browser sessions, server ports, Docker containers, images, or volumes were started by this pass.

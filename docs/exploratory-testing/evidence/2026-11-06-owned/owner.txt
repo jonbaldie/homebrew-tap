@@ -1,0 +1,44 @@
+owner: trap registered before worktree creation
+worktree: <worktree>
+resources: no browser, server, container, image, volume, or port planned
+teardown: terminate active registered process group, then git worktree remove --force
+Preparing worktree (detached HEAD d7d139d)
+HEAD is now at d7d139d docs(testing): record tap installation exploration (#5)
+registered process group=2950381 command=git
+registered process group=2950393 command=brew
+registered process group=2950424 command=brew
+registered process group=2950835 command=brew
+registered process group=2950897 command=brew
+registered process group=2950929 command=brew
+registered process group=2950962 command=brew
+registered process group=2951162 command=brew
+registered process group=2951194 command=brew
+registered process group=2951226 command=brew
+registered process group=2951504 command=brew
+registered process group=2951514 command=hach
+registered process group=2951526 command=brew
+registered process group=2951948 command=brew
+registered process group=2952003 command=brew
+registered process group=2952229 command=brew
+registered process group=2952239 command=hach
+registered process group=2952251 command=brew
+registered process group=2952554 command=brew
+registered process group=2952564 command=prosie
+registered process group=2952570 command=brew
+registered process group=2952657 command=brew
+registered process group=2952706 command=brew
+registered process group=2952937 command=brew
+registered process group=2952947 command=prosie
+registered process group=2952953 command=brew
+registered process group=2953221 command=brew
+registered process group=2953231 command=bookbeam
+registered process group=2953237 command=brew
+registered process group=2953340 command=brew
+registered process group=2953396 command=brew
+registered process group=2953626 command=brew
+registered process group=2953636 command=bookbeam
+owner: all commands completed; normal exit starts teardown
+cleanup: git worktree remove exit=0
+cleanup: worktree absent
+cleanup: no browsers, containers, images, volumes, or listening services started
+cleanup: final exit=0

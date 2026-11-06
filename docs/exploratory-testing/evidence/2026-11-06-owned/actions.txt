@@ -1,0 +1,459 @@
+tap base=d7d139d0c589abd9616e07ab2556be39ccba95be
+platform=Linux x86_64
+
+$ git clone --depth 1 --branch 7.0.12 https://github.com/Homebrew/brew <worktree>/.scratch/brew
+Cloning into '<worktree>/.scratch/brew'...
+Note: switching to 'bf464f57275cae0be106b43d190c98564ac59b0e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+exit=0
+Homebrew commit=bf464f57275cae0be106b43d190c98564ac59b0e
+
+$ brew --version
+Homebrew 7.0.12
+exit=0
+
+$ brew tap jonbaldie/tap
+==> Downloading https://ghcr.io/v2/homebrew/core/portable-ruby/blobs/sha256:20d7b22eba004e0518932ce7f8a271c16b1a9da91b81f696c735d14d817a2c07
+
+#=#=#
+                                                                           0.1%
+############################################                              62.3%
+#######################################################################   99.3%
+######################################################################## 100.0%
+==> Pouring portable-ruby-4.0.9.x86_64_linux.bottle.tar.gz
+==> Downloading Homebrew API data
+✔︎ JSON API packages.x86_64_linux.jws.json
+==> Tapping jonbaldie/tap
+Cloning into '<worktree>/.scratch/brew/Library/Taps/jonbaldie/homebrew-tap'...
+Tapped 3 formulae (29 files, 167.1KB).
+exit=0
+tap clone commit=d7d139d0c589abd9616e07ab2556be39ccba95be
+
+$ brew install hach
+Error: Refusing to load formula jonbaldie/tap/hach from untrusted tap jonbaldie/tap.
+Run `brew trust --formula jonbaldie/tap/hach` or `brew trust jonbaldie/tap` to trust it.
+exit=1
+Observed initial short-name failure
+
+$ brew list --versions hach
+exit=1
+No installed hach
+
+$ brew untap jonbaldie/tap
+Untapping jonbaldie/tap...
+Untapped 3 formulae (29 files, 167.1KB).
+exit=0
+
+$ brew tap jonbaldie/tap
+==> Tapping jonbaldie/tap
+Cloning into '<worktree>/.scratch/brew/Library/Taps/jonbaldie/homebrew-tap'...
+Tapped 3 formulae (29 files, 167.1KB).
+exit=0
+
+$ brew install hach
+Error: Refusing to load formula jonbaldie/tap/hach from untrusted tap jonbaldie/tap.
+Run `brew trust --formula jonbaldie/tap/hach` or `brew trust jonbaldie/tap` to trust it.
+exit=1
+Observed replay short-name failure
+
+$ brew trust jonbaldie/tap
+Trusted tap: jonbaldie/tap
+exit=0
+
+$ brew install jonbaldie/tap/hach
+==> Trusted formula jonbaldie/tap/hach
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+==> Fetching downloads for: hach
+✔︎ Formula hach (0.1.17)
+==> Installing hach from jonbaldie/tap
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+🍺  <worktree>/.scratch/brew/Cellar/hach/0.1.17: 5 files, 50.4MB, built in 2 seconds
+exit=0
+
+$ brew list --versions hach
+hach 0.1.17
+exit=0
+
+$ hach --help
+Usage: hach [options] [task prompt...]
+
+Options:
+  -h, --help                      Show this help and exit
+  -v, --version                   Print the version and exit
+  -m, --model MODEL               Model identifier to request, passed unchanged (overrides .env)
+  --provider PROVIDER             Inference API: openrouter (default) or openai-compatible
+  --base-url URL                  Inference API root, e.g. http://localhost:8080/v1 (/chat/completions is appended)
+  --no-tui                        Run the agent headless instead of the terminal UI
+  -p, --print                     Run headless and print only the final answer
+  --output-format text|json       Format of the --print answer (default: text)
+  -c, --continue                  Continue the most recent session in this workspace
+  -r, --resume                    Resume the most recent session in this workspace
+  --session-id ID                 Resume the session with this ID
+  --max-turns N                   Stop the agent after N turns
+  --max-budget-usd USD            Stop the agent after spending this many US dollars
+  --append-system-prompt TEXT     Append TEXT to the system prompt
+  --add-dir DIR                   Add a working directory tools may reach (repeatable)
+  -w, --worktree NAME             Work in the git worktree NAME, creating it if needed
+  --init                          Create a CLAUDE.md guidelines template and exit
+  --exec CMD                      Run the shell command CMD in the workspace and exit
+  --permission-mode MODE          default, acceptEdits, plan, auto, dontAsk or bypassPermissions
+  --dangerously-skip-permissions  Skip all permission prompts
+  --                              Treat every remaining argument as prompt text
+
+Inference (each setting: flag > process environment > .env > settings.json):
+  Provider  --provider, HACH_PROVIDER, or llm_provider; openrouter by default.
+  openrouter         key OPENROUTER_API_KEY (required), model OPENROUTER_MODEL;
+                     API root --base-url, else https://openrouter.ai/api/v1.
+  openai-compatible  key OPENAI_API_KEY (optional), model OPENAI_MODEL;
+                     API root --base-url, OPENAI_BASE_URL, or llm_base_url,
+                     else https://api.openai.com/v1.
+  The API root ends before /chat/completions, which Hach appends.
+  Keys and models never carry over from one provider to the other.
+exit=0
+
+$ brew test jonbaldie/tap/hach
+Warning: test is a developer command, so Homebrew's
+developer mode has been automatically turned on.
+To turn developer mode off, run:
+  brew developer off
+
+Fetching gem metadata from https://rubygems.org/.........
+Fetching drb 2.2.3
+Fetching bindata 3.0.1
+Fetching concurrent-ruby 1.3.8
+Fetching elftools 2.2.0
+Fetching logger 1.7.0
+Fetching prism 1.9.0
+Fetching minitest 6.0.6
+Fetching patchelf 1.7.0
+Fetching plist 3.7.2
+Fetching ruby-macho 7.0.0
+Fetching sorbet-runtime 0.6.13591
+Installing drb 2.2.3
+Installing logger 1.7.0
+Installing bindata 3.0.1
+Installing elftools 2.2.0
+Installing patchelf 1.7.0
+Installing plist 3.7.2
+Installing minitest 6.0.6
+Installing concurrent-ruby 1.3.8
+Installing prism 1.9.0 with native extensions
+Installing ruby-macho 7.0.0
+Installing sorbet-runtime 0.6.13591
+Bundle complete! 38 Gemfile dependencies, 11 gems now installed.
+Bundled gems are installed into `./.scratch/brew/Library/Homebrew/vendor/bundle`
+2 installed gems you directly depend on are looking for funding.
+  Run `bundle fund` for details
+==> Testing jonbaldie/tap/hach
+==> <worktree>/.scra
+exit=0
+
+$ brew uninstall hach
+Uninstalling <worktree>/.scratch/brew/Cellar/hach/0.1.17... (5 files, 50.4MB)
+exit=0
+
+$ brew install hach
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+==> Fetching downloads for: hach
+✔︎ Formula hach (0.1.17)
+==> Installing hach from jonbaldie/tap
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+🍺  <worktree>/.scratch/brew/Cellar/hach/0.1.17: 5 files, 50.4MB, built in 2 seconds
+exit=0
+
+$ brew list --versions hach
+hach 0.1.17
+exit=0
+
+$ hach --help
+Usage: hach [options] [task prompt...]
+
+Options:
+  -h, --help                      Show this help and exit
+  -v, --version                   Print the version and exit
+  -m, --model MODEL               Model identifier to request, passed unchanged (overrides .env)
+  --provider PROVIDER             Inference API: openrouter (default) or openai-compatible
+  --base-url URL                  Inference API root, e.g. http://localhost:8080/v1 (/chat/completions is appended)
+  --no-tui                        Run the agent headless instead of the terminal UI
+  -p, --print                     Run headless and print only the final answer
+  --output-format text|json       Format of the --print answer (default: text)
+  -c, --continue                  Continue the most recent session in this workspace
+  -r, --resume                    Resume the most recent session in this workspace
+  --session-id ID                 Resume the session with this ID
+  --max-turns N                   Stop the agent after N turns
+  --max-budget-usd USD            Stop the agent after spending this many US dollars
+  --append-system-prompt TEXT     Append TEXT to the system prompt
+  --add-dir DIR                   Add a working directory tools may reach (repeatable)
+  -w, --worktree NAME             Work in the git worktree NAME, creating it if needed
+  --init                          Create a CLAUDE.md guidelines template and exit
+  --exec CMD                      Run the shell command CMD in the workspace and exit
+  --permission-mode MODE          default, acceptEdits, plan, auto, dontAsk or bypassPermissions
+  --dangerously-skip-permissions  Skip all permission prompts
+  --                              Treat every remaining argument as prompt text
+
+Inference (each setting: flag > process environment > .env > settings.json):
+  Provider  --provider, HACH_PROVIDER, or llm_provider; openrouter by default.
+  openrouter         key OPENROUTER_API_KEY (required), model OPENROUTER_MODEL;
+                     API root --base-url, else https://openrouter.ai/api/v1.
+  openai-compatible  key OPENAI_API_KEY (optional), model OPENAI_MODEL;
+                     API root --base-url, OPENAI_BASE_URL, or llm_base_url,
+                     else https://api.openai.com/v1.
+  The API root ends before /chat/completions, which Hach appends.
+  Keys and models never carry over from one provider to the other.
+exit=0
+
+$ brew install jonbaldie/tap/prosie
+==> Trusted formula jonbaldie/tap/prosie
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+==> Fetching downloads for: prosie
+✔︎ Formula prosie (0.8.0)
+==> Installing prosie from jonbaldie/tap
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+🍺  <worktree>/.scratch/brew/Cellar/prosie/0.8.0: 6 files, 6.5MB, built in 1 second
+exit=0
+
+$ brew list --versions prosie
+prosie 0.8.0
+exit=0
+
+$ prosie --help
+prosie - Command-line interface for the Prosie novel writing platform
+
+Usage:
+  prosie <command> [flags]
+
+Available Commands:
+  auth        Manage authentication (login, status, logout)
+  book        Manage books (list, show, create, update, delete, duplicate, export, import)
+  chapter     Manage chapters (list, show, create, update, delete, reorder, export)
+  chat        Manage novel chat assistant (list, show, send, stream, export, import, delete)
+  codex       Manage narrative facts and lore notes (list, show, create, update, delete)
+  generate    Generate AI prose (continue, reject, rewrite, summarize)
+  llm         Manage LLM provider, model, and API key settings
+  series      Manage book collections and shared lore (list, show, create, update, delete, attach, detach)
+  version     Display the CLI version
+
+Flags:
+  -h, --help      Show help for command
+  -v, --version   Show CLI version
+      --json      Format output as JSON
+
+Use "prosie <command> --help" for more information about a command.
+exit=0
+
+$ brew test jonbaldie/tap/prosie
+==> Testing jonbaldie/tap/prosie
+==> <worktree>/.scra
+exit=0
+
+$ brew uninstall prosie
+Uninstalling <worktree>/.scratch/brew/Cellar/prosie/0.8.0... (6 files, 6.5MB)
+exit=0
+
+$ brew install prosie
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+==> Fetching downloads for: prosie
+✔︎ Formula prosie (0.8.0)
+==> Installing prosie from jonbaldie/tap
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+🍺  <worktree>/.scratch/brew/Cellar/prosie/0.8.0: 6 files, 6.5MB, built in 1 second
+exit=0
+
+$ brew list --versions prosie
+prosie 0.8.0
+exit=0
+
+$ prosie --help
+prosie - Command-line interface for the Prosie novel writing platform
+
+Usage:
+  prosie <command> [flags]
+
+Available Commands:
+  auth        Manage authentication (login, status, logout)
+  book        Manage books (list, show, create, update, delete, duplicate, export, import)
+  chapter     Manage chapters (list, show, create, update, delete, reorder, export)
+  chat        Manage novel chat assistant (list, show, send, stream, export, import, delete)
+  codex       Manage narrative facts and lore notes (list, show, create, update, delete)
+  generate    Generate AI prose (continue, reject, rewrite, summarize)
+  llm         Manage LLM provider, model, and API key settings
+  series      Manage book collections and shared lore (list, show, create, update, delete, attach, detach)
+  version     Display the CLI version
+
+Flags:
+  -h, --help      Show help for command
+  -v, --version   Show CLI version
+      --json      Format output as JSON
+
+Use "prosie <command> --help" for more information about a command.
+exit=0
+
+$ brew install jonbaldie/tap/bookbeam
+==> Trusted formula jonbaldie/tap/bookbeam
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+==> Fetching downloads for: bookbeam
+✔︎ Formula bookbeam (0.1.4)
+==> Installing bookbeam from jonbaldie/tap
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+🍺  <worktree>/.scratch/brew/Cellar/bookbeam/0.1.4: 4 files, 7MB, built in 1 second
+exit=0
+
+$ brew list --versions bookbeam
+bookbeam 0.1.4
+exit=0
+
+$ bookbeam --help
+BookBeam CLI lets authors and developers manage book projects, files,
+signup links, newsletters, downloaders, and telemetry directly from the terminal.
+
+Usage:
+  bookbeam [command]
+
+Available Commands:
+  auth        Manage authentication and tokens
+  billing     Check team account billing and subscription entitlement
+  completion  Generate shell completion script for your terminal
+  downloaders View reader downloaders and export subscriber lists
+  files       Manage book files (EPUB, MOBI, PDF) attached to projects
+  help        Help about any command
+  links       Manage reader signup links and landing pages
+  logs        View chronological telemetry activity logs
+  metrics     Display aggregated catalog and reader engagement metrics
+  newsletter  Manage mailing list integrations and webhook notifications
+  projects    Manage book projects in your catalog
+  whoami      Display the currently authenticated user and team
+
+Flags:
+  -h, --help           help for bookbeam
+      --host string    BookBeam API host (default https://bookbeam.app)
+      --json           Output results as JSON
+  -q, --quiet          Suppress informational messages
+      --token string   BookBeam API personal access token
+
+Use "bookbeam [command] --help" for more information about a command.
+exit=0
+
+$ brew test jonbaldie/tap/bookbeam
+==> Testing jonbaldie/tap/bookbeam
+==> <worktree>/.scra
+==> <worktree>/.scra
+exit=0
+
+$ brew uninstall bookbeam
+Uninstalling <worktree>/.scratch/brew/Cellar/bookbeam/0.1.4... (4 files, 7MB)
+exit=0
+
+$ brew install bookbeam
+Warning: Your Homebrew's prefix is not /home/linuxbrew/.linuxbrew.
+
+Some of Homebrew's bottles (binary packages) cannot be used with this prefix.
+
+Consider uninstalling Homebrew and reinstalling into the default prefix.
+==> Fetching downloads for: bookbeam
+✔︎ Formula bookbeam (0.1.4)
+==> Installing bookbeam from jonbaldie/tap
+
+This is a Tier 3 configuration:
+  https://docs.brew.sh/Support-Tiers#tier-3
+You can report issues with Tier 3 configurations to Homebrew/* repositories!
+  https://docs.brew.sh/Troubleshooting
+Read the above document before opening any issues or PRs.
+🍺  <worktree>/.scratch/brew/Cellar/bookbeam/0.1.4: 4 files, 7MB, built in 1 second
+exit=0
+
+$ brew list --versions bookbeam
+bookbeam 0.1.4
+exit=0
+
+$ bookbeam --help
+BookBeam CLI lets authors and developers manage book projects, files,
+signup links, newsletters, downloaders, and telemetry directly from the terminal.
+
+Usage:
+  bookbeam [command]
+
+Available Commands:
+  auth        Manage authentication and tokens
+  billing     Check team account billing and subscription entitlement
+  completion  Generate shell completion script for your terminal
+  downloaders View reader downloaders and export subscriber lists
+  files       Manage book files (EPUB, MOBI, PDF) attached to projects
+  help        Help about any command
+  links       Manage reader signup links and landing pages
+  logs        View chronological telemetry activity logs
+  metrics     Display aggregated catalog and reader engagement metrics
+  newsletter  Manage mailing list integrations and webhook notifications
+  projects    Manage book projects in your catalog
+  whoami      Display the currently authenticated user and team
+
+Flags:
+  -h, --help           help for bookbeam
+      --host string    BookBeam API host (default https://bookbeam.app)
+      --json           Output results as JSON
+  -q, --quiet          Suppress informational messages
+      --token string   BookBeam API personal access token
+
+Use "bookbeam [command] --help" for more information about a command.
+exit=0
+
+all journeys completed
