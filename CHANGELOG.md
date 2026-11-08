@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.3
+
+- Update prosie to 0.8.0.
+- Keep hach at 0.1.17 and bookbeam at 0.1.4.
+
 ## v0.1.2
 
 - Update hach to 0.1.17 and prosie to 0.7.0.
