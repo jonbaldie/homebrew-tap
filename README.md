@@ -12,12 +12,15 @@ brew install jonbaldie/tap/prosie
 brew install jonbaldie/tap/bookbeam
 ```
 
-Or tap the repository first:
+Or tap the repository first and trust it to install formulae by short name:
 
 ```bash
 brew tap jonbaldie/tap
+brew trust jonbaldie/tap
 brew install hach
 ```
+
+Trust allows Homebrew to load formulae from this tap. Only trust taps whose source you trust.
 
 ## Available Formulae
 
