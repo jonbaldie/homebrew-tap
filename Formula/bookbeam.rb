@@ -5,25 +5,25 @@ class Bookbeam < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/jonbaldie/bookbeam-cli/releases/download/v0.1.4/bookbeam-darwin-arm64.tar.gz"
-      sha256 "0f41288ca7d1821cd2a32c74a9a2e0e30dbd6a50e00bf811a79fd75591962a62"
+      url "https://github.com/jonbaldie/bookbeam-cli/releases/download/v0.1.14/bookbeam-darwin-arm64.tar.gz"
+      sha256 "814bee4b396b4cd89c0bdc55caa6c2e88bc7788b525ae29057bc3f6e0851e78d"
     end
 
     on_intel do
-      url "https://github.com/jonbaldie/bookbeam-cli/releases/download/v0.1.4/bookbeam-darwin-amd64.tar.gz"
-      sha256 "28db871abcc97617e91620b81025795f776e52e07597145c0e5b8d4cea39ebd3"
+      url "https://github.com/jonbaldie/bookbeam-cli/releases/download/v0.1.14/bookbeam-darwin-amd64.tar.gz"
+      sha256 "db6cfc42e57341d159da5f1813e9fd620df9ec0f65c5cf2557f88fd84275c4fb"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/jonbaldie/bookbeam-cli/releases/download/v0.1.4/bookbeam-linux-arm64.tar.gz"
-      sha256 "fc5ebc7cedc6e6eff63185de5d2baf8cd6d52bb817d8f1cb40d4a2257e0121aa"
+      url "https://github.com/jonbaldie/bookbeam-cli/releases/download/v0.1.14/bookbeam-linux-arm64.tar.gz"
+      sha256 "1a26e97d7e172314323453216078537ee098ceca393bf773044b02cdc2ba6c18"
     end
 
     on_intel do
-      url "https://github.com/jonbaldie/bookbeam-cli/releases/download/v0.1.4/bookbeam-linux-amd64.tar.gz"
-      sha256 "38f3800ccc59cf6d9230b7e2d004a063215476777c101ec8258144e8ef4fe1e6"
+      url "https://github.com/jonbaldie/bookbeam-cli/releases/download/v0.1.14/bookbeam-linux-amd64.tar.gz"
+      sha256 "d5e3c90c1679fc2830bd206e47ff3643256ac2a2218d5cb885857e5ac9c365cf"
     end
   end
 
